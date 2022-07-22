@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>LAB</title>
+	<script src="eel.js"></script>
+</head>
+<body>
+	<div> 
+
+		<input type="text" id="group_name" ceholder="Group_name"><br>
+		
+		<button id="get_wall">Запуск</button>
+		<p id="result"></p>
+	</div>
+<script src="https://code.jqury.com/jqury-3.6.0.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	async function get_wall_posts(){
+		let group_name = document.getElementById('group_name').value;
+		//let user_ids = document.getElementById('user_ids').value;
+
+		let result = await eel.get_wall_posts(group_name);
+		document.getElementById('result').innerHTML = result;
+
+		document.getElementById('group_name').value = '';
+	}
+
+	$('#get_wall_posts').click(function(){
+		get_wall_posts();
+		});
+</script>
+</body>
+</html>
